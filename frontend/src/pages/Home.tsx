@@ -1,45 +1,14 @@
 import { useEffect, useState } from "react";
-import { smilingMan } from "../../assets";
-import { Ticket, Todo } from "../../types";
-import TicketComponent from "../../components/Ticket";
-import TodoComponent from "../../components/Todo";
-import StaffComponent from "../../components/Staff";
-import { staffData } from "../../staffData/staff";
+import { smilingMan } from "../assets";
+import { Ticket, Todo } from "../types";
+import TicketComponent from "../components/Ticket";
+import TodoComponent from "../components/Todo";
+import StaffComponent from "../components/Staff";
+import { staffData } from "../staffData/staff";
+import { useData } from "../context/DataContext";
 
 const Home = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [tickets, setTickets] = useState<Ticket[]>([]);
-
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    try {
-      fetch("http://localhost:4000/api/tickets")
-        .then((res) => res.json())
-        .then((data) => {
-          // console.log(data);
-          setTickets(data);
-          setLoading(false);
-        });
-
-      fetch("http://localhost:4000/api/todos")
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          setTodos(data);
-          setLoading(false);
-        });
-
-      console.log("Data fetched successfully.");
-    } catch (err) {
-      setError("Couldn't load data. Please try again later.");
-    } finally {
-      setLoading(false);
-    }
-  }, []);
-
-  if (loading) return <p>Loading...</p>;
+  const { tickets, todos, loading, error } = useData();
 
   const openTickets = tickets.filter((ticket) => ticket.status === "Open"); //getting the tickets with status of Open
   const pendingTasks = todos.filter((todo) => todo.completed === false); //getting the tickets with status of Open
@@ -55,6 +24,8 @@ const Home = () => {
       joinedDate.getFullYear() === currentYear
     );
   });
+
+  if (loading) return <p>Loading...</p>;
 
   console.log(newJoiners);
 
@@ -178,7 +149,7 @@ const Home = () => {
 
                 {error ? (
                   <div className="text-red-600 bg-red-100 p-4 rounded-md mt-4">
-                    {error}
+                    Error loading data
                   </div>
                 ) : openTickets.length > 0 ? (
                   openTickets.map((ticket) => (
@@ -200,7 +171,7 @@ const Home = () => {
                 <p className="mt-6 text-lg/8 text-gray-600">Pending Tasks</p>
                 {error ? (
                   <div className="text-red-600 bg-red-100 p-4 rounded-md mt-4">
-                    {error}
+                    Error loading data
                   </div>
                 ) : pendingTasks.length > 0 ? (
                   pendingTasks.map((ticket) => (
@@ -219,7 +190,7 @@ const Home = () => {
                 <p className="mt-6 text-lg/8 text-gray-600">Latest Updates</p>
                 {error ? (
                   <div className="text-red-600 bg-red-100 p-4 rounded-md mt-4">
-                    {error}
+                    Error loading data
                   </div>
                 ) : newJoiners.length > 0 ? (
                   newJoiners.map((newJoiner) => (

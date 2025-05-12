@@ -35,7 +35,7 @@ const TicketComponent: React.FC<Ticket> = ({
                 status === "Open"
                   ? "bg-green-500"
                   : status === "In Progress"
-                  ? "bg-yellow-200"
+                  ? "bg-yellow-300"
                   : "bg-red-500"
               } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
             >

@@ -3,7 +3,7 @@ export interface Ticket {
     user: string;
     issue: string;
     description: string;
-    status: 'Open' | 'Closed' | 'In Progress';
+    status: 'Open' | 'In Progress' | 'Resolved';
     created: string;
   }
   

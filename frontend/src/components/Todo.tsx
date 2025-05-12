@@ -6,7 +6,7 @@ const TodoComponent: React.FC<Todo> = ({ id, title, completed }) => {
     <>
       <Link to="/todos">
         <div
-          className="max-w-sm rounded bg-white overflow-hidden shadow-lg mt-6"
+          className="max-w-sm rounded bg-yellow-200 overflow-hidden shadow-lg mt-6"
           key={id}
         >
           <div className="px-6 py-2">
