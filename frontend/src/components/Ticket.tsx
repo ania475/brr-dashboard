@@ -31,13 +31,13 @@ const TicketComponent: React.FC<Ticket> = ({
           <div className="px-6 pt-1 pb-2">
             <strong> Status: </strong>
             <span
-              className={
+              className={`inline-block ${
                 status === "Open"
-                  ? "inline-block bg-green-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                  ? "bg-green-500"
                   : status === "In Progress"
-                  ? "inline-block bg-yellow-300 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-                  : "inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-              }
+                  ? "bg-yellow-200"
+                  : "bg-red-500"
+              } rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2`}
             >
               {status}
             </span>
