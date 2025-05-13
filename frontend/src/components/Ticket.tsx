@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Ticket } from "../types";
+import DeleteTicketModal from "./DeleteTicketModal";
 
 const TicketComponent: React.FC<Ticket> = ({
   id,
@@ -8,6 +10,25 @@ const TicketComponent: React.FC<Ticket> = ({
   status,
   created,
 }) => {
+  const [renderModal, setRenderModal] = useState(false);
+
+  const handleDeleteTicket = async () => {
+    try {
+      const response = await fetch(`http://localhost:4000/api/tickets/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to delete ticket");
+      }
+
+      setRenderModal(false);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error deleting ticket:", error);
+    }
+  };
+
   return (
     <>
       <div
@@ -17,9 +38,21 @@ const TicketComponent: React.FC<Ticket> = ({
         <div className="px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="font-bold text-l mb-2">{issue}</div>
-            <button className="font-semibold rounded-lg border-red-500 border px-3 text-sm inline-block lg:h-6 sm:h-20 inline-block bg-white float-right text-red-500 lg:text-xs sm:text-sm">
+            <button
+              className="font-semibold rounded-lg border-gray-500 border px-3 text-sm inline-block lg:h-6 sm:h-20 inline-block bg-white float-right text-gray-500 lg:text-xs sm:text-sm"
+              onClick={() => setRenderModal(true)}
+            >
               Delete
             </button>
+            {renderModal && (
+              <>
+                <DeleteTicketModal
+                  renderModal={renderModal}
+                  onClose={() => setRenderModal(false)}
+                  onSubmit={handleDeleteTicket}
+                />
+              </>
+            )}
           </div>
           <p className="text-gray-700 text-base">{user}</p>
           <p className="text-gray-700 text-base">

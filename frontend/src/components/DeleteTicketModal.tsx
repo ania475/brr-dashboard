@@ -1,11 +1,13 @@
 type AddTicketModalProps = {
   renderModal: boolean;
   onClose: () => void;
+  onSubmit: () => void;
 };
 
 const DeleteTicketModal: React.FC<AddTicketModalProps> = ({
   renderModal,
   onClose,
+  onSubmit
 }) => {
   if (!renderModal) return null;
   return (
@@ -47,12 +49,11 @@ const DeleteTicketModal: React.FC<AddTicketModalProps> = ({
                     className="text-base font-semibold text-gray-900"
                     id="modal-title"
                   >
-                    Deactivate account
+                    Delete Ticket
                   </h3>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">
-                      Are you sure you want to deactivate your account? All of
-                      your data will be permanently removed. This action cannot
+                      Are you sure you want to delete this ticket? This action cannot
                       be undone.
                     </p>
                   </div>
@@ -62,9 +63,9 @@ const DeleteTicketModal: React.FC<AddTicketModalProps> = ({
             <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
               <button
                 type="button"
-                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto"
+                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-red-500 sm:ml-3 sm:w-auto" onClick={onSubmit}
               >
-                Deactivate
+                Delete
               </button>
               <button
                 type="button"
