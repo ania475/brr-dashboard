@@ -1,0 +1,14 @@
+export { default as smilingMan } from "./smiling-man.jpg";
+export { default as aliceSmith } from "./alice-smith.jpg";
+export { default as sallyGreen } from "./sally-green.jpg";
+export { default as emilyZhao } from "./emily-zhao.jpg";
+export { default as isabellaRossi } from "./isabella-rossi.jpg";
+export { default as jamal } from "./jamal.jpg";
+export { default as mohammed } from "./mohammed.jpg";
+export { default as maryBrooks } from "./mary-brooks.jpg";
+export { default as liamConnor } from "./liam-connor.jpg";
+export { default as johnDoe } from "./john-doe.jpg";
+export { default as sophieMuller } from "./sophie-muller.jpg";
+export { default as davidWu } from "./david-wu.jpg";
+export { default as amira } from "./amira.jpg";
+export { default as carlosMartinez } from "./carlos-martinez.jpg";
