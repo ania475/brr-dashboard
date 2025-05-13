@@ -2,7 +2,7 @@
   {
     "id": 1,
     "user": "alice@brrmedia.co.uk",
-    "issue": "WI-FI connectivity",
+    "issue": "Internet issue",
     "description": "My MacBook keeps dropping WI-FI",
     "status": "Open",
     "created": "2024-03-28T09:00:00Z"
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "user": "david.wu@brrmedia.co.uk",
-    "issue": "VSCode crashing",
+    "issue": "Tool issue",
     "description": "VSCode crashes every time I open a large project folder.",
     "status": "Open",
     "created": "2024-04-03T10:30:00Z"
@@ -18,7 +18,7 @@
   {
     "id": 3,
     "user": "amira@brrmedia.co.uk",
-    "issue": "Account login issue",
+    "issue": "Account issue",
     "description": "Unable to log into the dashboard despite correct credentials.",
     "status": "Resolved",
     "created": "2024-03-15T13:15:00Z"
@@ -26,7 +26,7 @@
   {
     "id": 4,
     "user": "carlos.martinez@brrmedia.co.uk",
-    "issue": "Design software license expired",
+    "issue": "Tool issue",
     "description": "Figma team license shows expired on my end.",
     "status": "In Progress",
     "created": "2024-04-01T08:50:00Z"
@@ -34,7 +34,7 @@
   {
     "id": 5,
     "user": "emily.zhao@brrmedia.co.uk",
-    "issue": "Slow internet connection",
+    "issue": "Internet issue",
     "description": "Internet is extremely slow during video calls.",
     "status": "Open",
     "created": "2024-04-05T11:00:00Z"
@@ -42,7 +42,7 @@
   {
     "id": 6,
     "user": "mohammed@brrmedia.co.uk",
-    "issue": "Testing tool not syncing",
+    "issue": "Tool issue",
     "description": "Test cases are not syncing with Jira.",
     "status": "In Progress",
     "created": "2024-03-29T15:25:00Z"
@@ -50,7 +50,7 @@
   {
     "id": 7,
     "user": "isabella.rossi@brrmedia.co.uk",
-    "issue": "Email sending delay",
+    "issue": "Other",
     "description": "Sales emails are delayed or sent twice.",
     "status": "Resolved",
     "created": "2024-03-26T09:45:00Z"
@@ -58,7 +58,7 @@
   {
     "id": 8,
     "user": "liam.oconnor@brrmedia.co.uk",
-    "issue": "Outlook calendar sync issue",
+    "issue": "Tool issue",
     "description": "Calendar events are not syncing between devices.",
     "status": "Open",
     "created": "2024-04-02T14:00:00Z"
@@ -66,7 +66,7 @@
   {
     "id": 9,
     "user": "sophie.mueller@brrmedia.co.uk",
-    "issue": "HR portal access denied",
+    "issue": "Other",
     "description": "I keep getting a 403 error on the internal HR portal.",
     "status": "In Progress",
     "created": "2024-03-30T17:00:00Z"
@@ -74,7 +74,7 @@
   {
     "id": 10,
     "user": "jamal.njeri@brrmedia.co.uk",
-    "issue": "Data visualization bug",
+    "issue": "Tool issue",
     "description": "Charts disappear when switching tabs.",
     "status": "Open",
     "created": "2024-04-06T12:40:00Z"
