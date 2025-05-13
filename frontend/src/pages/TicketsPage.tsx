@@ -3,7 +3,10 @@ import TicketComponent from "../components/Ticket";
 import { useData } from "../context/DataContext";
 
 const TicketsPage = () => {
-  const { tickets, todos, loading, error } = useData();
+  const { tickets, loading, error } = useData();
+
+    if (loading) return <p>Loading...</p>;
+
 
   return (
     <>
@@ -12,7 +15,7 @@ const TicketsPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="lg:pt-4 lg:pr-8">
-              <div className="lg:max-w-lg">
+              <div className="lg:max-w-5xl">
                 <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                   Tickets
                 </p>
@@ -49,7 +52,7 @@ const TicketsPage = () => {
                       </>
                     ))
                 ) : (
-                  <p>No new updates. Check back later.</p>
+                  <p>No open tickets. Check back later</p>
                 )}
               </div>
               <div id="col-2">
@@ -77,7 +80,7 @@ const TicketsPage = () => {
                       </>
                     ))
                 ) : (
-                  <p>No new updates. Check back later.</p>
+                  <p>No in progress tickets. Check back later.</p>
                 )}
               </div>
               <div id="col-3">
@@ -105,7 +108,7 @@ const TicketsPage = () => {
                       </>
                     ))
                 ) : (
-                  <p>No new updates. Check back later.</p>
+                  <p>No resolved tickets. Check back later.</p>
                 )}
               </div>
             </div>

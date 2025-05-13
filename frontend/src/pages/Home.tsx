@@ -1,33 +1,16 @@
-import { useEffect, useState } from "react";
 import { smilingMan } from "../assets";
-import { Ticket, Todo } from "../types";
 import TicketComponent from "../components/Ticket";
 import TodoComponent from "../components/Todo";
 import StaffComponent from "../components/Staff";
-import { staffData } from "../staffData/staff";
 import { useData } from "../context/DataContext";
 
 const Home = () => {
-  const { tickets, todos, loading, error } = useData();
+  const { tickets, todos, loading, error, newJoiners } = useData();
 
   const openTickets = tickets.filter((ticket) => ticket.status === "Open"); //getting the tickets with status of Open
   const pendingTasks = todos.filter((todo) => todo.completed === false); //getting the tickets with status of Open
 
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth(); // 0-indexed: January = 0
-  const currentYear = currentDate.getFullYear();
-
-  const newJoiners = staffData.filter((staffMember) => {
-    const joinedDate = new Date(staffMember.joinedDate);
-    return (
-      joinedDate.getMonth() === currentMonth &&
-      joinedDate.getFullYear() === currentYear
-    );
-  });
-
   if (loading) return <p>Loading...</p>;
-
-  console.log(newJoiners);
 
   return (
     <>

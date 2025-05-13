@@ -1,11 +1,13 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Ticket, Todo } from "../types";
+import { Ticket, Todo, Staff } from "../types";
+import { staffData } from "../staffData/staff";
 
 interface DataContextType {
   tickets: Ticket[];
   todos: Todo[];
   loading: boolean;
   error: string | null;
+  newJoiners: Staff[];
 }
 
 const DataContext = createContext<DataContextType | undefined>(undefined);
@@ -44,10 +46,22 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     }
   }, []);
 
-  console.log(tickets)
+  const currentDate = new Date();
+  const currentMonth = currentDate.getMonth();
+  const currentYear = currentDate.getFullYear();
+
+  const newJoiners = staffData.filter((staffMember) => {
+    const joinedDate = new Date(staffMember.joinedDate);
+    return (
+      joinedDate.getMonth() === currentMonth &&
+      joinedDate.getFullYear() === currentYear
+    );
+  });
 
   return (
-    <DataContext.Provider value={{ tickets, todos, loading, error }}>
+    <DataContext.Provider
+      value={{ tickets, todos, loading, error, newJoiners }}
+    >
       {children}
     </DataContext.Provider>
   );

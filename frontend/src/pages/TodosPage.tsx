@@ -3,7 +3,10 @@ import TodosComponent from "../components/Todo";
 import { useData } from "../context/DataContext";
 
 const TodosPage = () => {
-  const { tickets, todos, loading, error } = useData();
+  const { todos, loading, error } = useData();
+
+    if (loading) return <p>Loading...</p>;
+
 
   return (
     <>
@@ -12,13 +15,13 @@ const TodosPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="lg:pt-4 lg:pr-8">
-              <div className="lg:max-w-lg">
+              <div className="lg:max-w-5xl">
                 <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                   To-do List
                 </p>
                 <p className="mt-6 text-lg/8 text-gray-600">
-                  View all of the tickets below, organised by their current
-                  status.
+                  View all of your tasks organised in a to-do list, organised by
+                  their current status.
                 </p>
               </div>
             </div>
@@ -71,7 +74,7 @@ const TodosPage = () => {
                       </>
                     ))
                 ) : (
-                  <p>No new updates. Check back later.</p>
+                  <p>No finished tasks to view. </p>
                 )}
               </div>
             </div>

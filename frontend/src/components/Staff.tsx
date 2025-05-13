@@ -1,3 +1,5 @@
+import { useData } from "../context/DataContext";
+import { staffData } from "../staffData/staff";
 import { Staff } from "../types";
 
 const StaffComponent: React.FC<Staff> = ({
@@ -11,7 +13,11 @@ const StaffComponent: React.FC<Staff> = ({
   photo,
   joinedDate,
 }) => {
-  console.log("photo", photo);
+  const { loading, newJoiners } = useData();
+  const newJoinerNames = new Set(newJoiners.map((person) => person.name));
+
+  if (loading) return <p>Loading...</p>;
+
   return (
     <div className="max-w-sm rounded overflow-hidden bg-white mt-6 shadow-lg ">
       <div className="grid grid-cols-2 gap-1">
@@ -19,6 +25,9 @@ const StaffComponent: React.FC<Staff> = ({
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{name}</div>
             <p className="text-gray-700 text-base">{email}</p>
+            <p className="text-gray-400 text-base text-sm">
+              <em> Joined: {joinedDate} </em>
+            </p>
           </div>
         </div>
         <div id="col-1">
@@ -33,11 +42,14 @@ const StaffComponent: React.FC<Staff> = ({
         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
           More information
         </span>
-        <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          <a href={`mailto:${email}?body=My custom mail body`}>
-            Say hi to our new joiner! 👋
-          </a>
-        </span>
+
+        {newJoinerNames.has(name) && (
+          <span className="inline-block bg-indigo-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
+            <a href={`mailto:${email}?body=My custom mail body`}>
+              Say hi to our new joiner! 👋
+            </a>
+          </span>
+        )}
       </div>
     </div>
   );
