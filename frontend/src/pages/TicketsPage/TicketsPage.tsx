@@ -1,9 +1,9 @@
 import { useState } from "react";
-import AddTicketModal from "../components/AddTicketModal";
-import Menu from "../components/Menu";
-import TicketComponent from "../components/Ticket";
-import { useData } from "../context/DataContext";
-import { Ticket, TicketInput } from "../types";
+import AddTicketModal from "../../components/AddTicketModal/AddTicketModal";
+import Menu from "../../components/Menu/Menu";
+import TicketComponent from "../../components/Ticket/Ticket";
+import { useData } from "../../context/DataContext";
+import { Ticket, TicketInput } from "../../types";
 
 const TicketsPage = () => {
   const { tickets, loading, error, setNewTickets } = useData();

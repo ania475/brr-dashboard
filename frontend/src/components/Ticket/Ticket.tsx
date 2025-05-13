@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Ticket } from "../types";
-import DeleteTicketModal from "./DeleteTicketModal";
+import { Ticket } from "../../types";
+import DeleteTicketModal from "../DeleteTicketModal/DeleteTicketModal";
 
 const TicketComponent: React.FC<Ticket> = ({
   id,

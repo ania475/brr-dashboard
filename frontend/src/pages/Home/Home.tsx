@@ -1,8 +1,8 @@
-import { smilingMan } from "../assets";
-import TicketComponent from "../components/Ticket";
-import TodoComponent from "../components/Todo";
-import StaffComponent from "../components/Staff";
-import { useData } from "../context/DataContext";
+import { smilingMan } from "../../assets";
+import TicketComponent from "../../components/Ticket/Ticket";
+import TodoComponent from "../../components/Todo/Todo";
+import StaffComponent from "../../components/Staff/Staff";
+import { useData } from "../../context/DataContext";
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -88,10 +88,11 @@ const Home = () => {
                           clip-rule="evenodd"
                         />
                       </svg>
-                      And much more{" - "}
+                      View Staff{" - "}
                     </dt>
                     <dd className="inline">
-                      Navigate to the Staff tab in the menu to view all of information about all of the current staff members.
+                      Navigate to the Staff tab in the menu to view all of
+                      information about all of the current staff members.
                     </dd>
                   </div>
                 </dl>

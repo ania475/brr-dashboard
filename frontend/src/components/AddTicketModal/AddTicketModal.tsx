@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Ticket, TicketInput } from "../types";
+import { Ticket, TicketInput } from "../../types";
 
 type AddTicketModalProps = {
   renderModal: boolean;

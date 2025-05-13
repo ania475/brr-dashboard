@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Todo } from "../types";
+import { Todo } from "../../types";
 
 const TodoComponent: React.FC<Todo> = ({ id, title, completed }) => {
   return (

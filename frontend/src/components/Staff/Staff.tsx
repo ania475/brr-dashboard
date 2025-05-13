@@ -1,6 +1,6 @@
-import { useData } from "../context/DataContext";
-import { staffData } from "../staffData/staff";
-import { Staff } from "../types";
+import { useData } from "../../context/DataContext";
+import { staffData } from "../../staffData/staff";
+import { Staff } from "../../types";
 
 const StaffComponent: React.FC<Staff> = ({
   id,

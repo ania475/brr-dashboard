@@ -1,11 +1,11 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import Menu from "./components/Menu";
-import TicketsPage from "./pages/TicketsPage";
-import TodosPage from "./pages/TodosPage";
+import Home from "./pages/Home/Home";
+import Menu from "./components/Menu/Menu";
+import TicketsPage from "./pages/TicketsPage/TicketsPage";
+import TodosPage from "./pages/TodosPage/TodosPage";
 import { DataProvider } from "./context/DataContext";
-import StaffPage from "./pages/StaffPage";
+import StaffPage from "./pages/StaffPage/StaffPage";
 
 function App() {
   return (

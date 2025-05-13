@@ -1,6 +1,6 @@
-import Menu from "../components/Menu";
-import { useData } from "../context/DataContext";
-import TodosComponent from "../components/Todo";
+import Menu from "../../components/Menu/Menu";
+import { useData } from "../../context/DataContext";
+import TodosComponent from "../../components/Todo/Todo";
 import { useEffect, useState } from "react";
 import {
   DragDropContext,
@@ -8,7 +8,7 @@ import {
   Draggable,
   DropResult,
 } from "@hello-pangea/dnd";
-import { Todo } from "../types";
+import { Todo } from "../../types";
 
 const TodosPage = () => {
   const { todos, loading, error } = useData();

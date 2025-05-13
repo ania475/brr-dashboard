@@ -1,7 +1,7 @@
-import Menu from "../components/Menu";
-import StaffComponent from "../components/Staff";
-import { useData } from "../context/DataContext";
-import { staffData } from "../staffData/staff";
+import Menu from "../../components/Menu/Menu";
+import StaffComponent from "../../components/Staff/Staff";
+import { useData } from "../../context/DataContext";
+import { staffData } from "../../staffData/staff";
 
 const StaffPage = () => {
   const { loading, error } = useData();
