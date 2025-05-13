@@ -6,4 +6,7 @@ export interface Ticket {
     status: 'Open' | 'In Progress' | 'Resolved';
     created: string;
   }
+
+  // Add this helper type for creation:
+export type TicketInput = Omit<Ticket, "id">;
   

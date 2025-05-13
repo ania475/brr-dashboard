@@ -3,6 +3,7 @@ import TicketComponent from "../components/Ticket";
 import TodoComponent from "../components/Todo";
 import StaffComponent from "../components/Staff";
 import { useData } from "../context/DataContext";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const { tickets, todos, loading, error, newJoiners } = useData();
@@ -23,9 +24,8 @@ const Home = () => {
                   Welcome
                 </p>
                 <p className="mt-6 text-lg/8 text-gray-600">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor
-                  cupiditate blanditiis ratione.
+                  This is The Dashboard. Your home for managing the most
+                  importan things for your company.
                 </p>
                 <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                   <div className="relative pl-9">
@@ -43,12 +43,11 @@ const Home = () => {
                           clip-rule="evenodd"
                         />
                       </svg>
-                      View tasks
+                      View tasks{" - "}
                     </dt>
                     <dd className="inline">
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                      Maiores impedit perferendis suscipit eaque, iste dolor
-                      cupiditate blanditiis ratione.
+                      Navigate to the To-do List tab in the menu to view all of
+                      your tasks.
                     </dd>
                   </div>
                   <div className="relative pl-9">
@@ -66,11 +65,11 @@ const Home = () => {
                           clip-rule="evenodd"
                         />
                       </svg>
-                      Manage tickets
+                      Manage tickets{" - "}
                     </dt>
                     <dd className="inline">
-                      Anim aute id magna aliqua ad ad non deserunt sunt. Qui
-                      irure qui lorem cupidatat commodo.
+                      Navigate to the Tickets tab in the menu to view all of
+                      your tasks.
                     </dd>
                   </div>
                   <div className="relative pl-9">
@@ -89,11 +88,10 @@ const Home = () => {
                           clip-rule="evenodd"
                         />
                       </svg>
-                      And much more
+                      And much more{" - "}
                     </dt>
                     <dd className="inline">
-                      Ac tincidunt sapien vehicula erat auctor pellentesque
-                      rhoncus. Et magna sit morbi lobortis.
+                      Navigate to the Staff tab in the menu to view all of information about all of the current staff members.
                     </dd>
                   </div>
                 </dl>
@@ -136,15 +134,17 @@ const Home = () => {
                   </div>
                 ) : openTickets.length > 0 ? (
                   openTickets.map((ticket) => (
-                    <TicketComponent
-                      key={ticket.id}
-                      id={ticket.id}
-                      issue={ticket.issue}
-                      description={ticket.description}
-                      created={ticket.created}
-                      user={ticket.user}
-                      status={ticket.status}
-                    />
+                    <Link to="/tickets">
+                      <TicketComponent
+                        key={ticket.id}
+                        id={ticket.id}
+                        issue={ticket.issue}
+                        description={ticket.description}
+                        created={ticket.created}
+                        user={ticket.user}
+                        status={ticket.status}
+                      />
+                    </Link>
                   ))
                 ) : (
                   <p>No open tickets right now. Check back later.</p>
@@ -158,12 +158,14 @@ const Home = () => {
                   </div>
                 ) : pendingTasks.length > 0 ? (
                   pendingTasks.map((ticket) => (
-                    <TodoComponent
-                      key={ticket.id}
-                      id={ticket.id}
-                      title={ticket.title}
-                      completed={ticket.completed}
-                    />
+                    <Link to="/todos">
+                      <TodoComponent
+                        key={ticket.id}
+                        id={ticket.id}
+                        title={ticket.title}
+                        completed={ticket.completed}
+                      />
+                    </Link>
                   ))
                 ) : (
                   <p>No open tickets right now. Check back later.</p>
@@ -177,7 +179,7 @@ const Home = () => {
                   </div>
                 ) : newJoiners.length > 0 ? (
                   newJoiners.map((newJoiner) => (
-                    <>
+                    <Link to="/staff">
                       <StaffComponent
                         key={newJoiner.id}
                         id={newJoiner.id}
@@ -187,7 +189,7 @@ const Home = () => {
                         role={newJoiner.role}
                         joinedDate={newJoiner.joinedDate}
                       />
-                    </>
+                    </Link>
                   ))
                 ) : (
                   <p>No new updates. Check back later.</p>

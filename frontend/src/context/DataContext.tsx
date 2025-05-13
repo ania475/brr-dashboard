@@ -4,6 +4,7 @@ import { staffData } from "../staffData/staff";
 
 interface DataContextType {
   tickets: Ticket[];
+  setNewTickets: React.Dispatch<React.SetStateAction<Ticket[]>>;
   todos: Todo[];
   loading: boolean;
   error: string | null;
@@ -16,6 +17,8 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [tickets, setTickets] = useState<Ticket[]>([]);
+  const [newTickets, setNewTickets] = useState<Ticket[]>([]);
+
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -25,7 +28,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
       fetch("http://localhost:4000/api/tickets")
         .then((res) => res.json())
         .then((data) => {
-          // console.log(data);
           setTickets(data);
           setLoading(false);
         });
@@ -33,7 +35,6 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
       fetch("http://localhost:4000/api/todos")
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setTodos(data);
           setLoading(false);
         });
@@ -60,7 +61,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <DataContext.Provider
-      value={{ tickets, todos, loading, error, newJoiners }}
+      value={{ tickets, setNewTickets, todos, loading, error, newJoiners }}
     >
       {children}
     </DataContext.Provider>

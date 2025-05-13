@@ -1,12 +1,42 @@
+import { useState } from "react";
+import AddTicketModal from "../components/AddTicketModal";
 import Menu from "../components/Menu";
 import TicketComponent from "../components/Ticket";
 import { useData } from "../context/DataContext";
+import { Ticket, TicketInput } from "../types";
 
 const TicketsPage = () => {
-  const { tickets, loading, error } = useData();
+  const { tickets, loading, error, setNewTickets } = useData();
+  const [renderModal, setRenderModal] = useState(false);
 
-    if (loading) return <p>Loading...</p>;
+  const handleNewTicket = async (ticket: TicketInput) => {
+    console.log("ticket", ticket);
+    try {
+      const response = await fetch("http://localhost:4000/api/tickets", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(ticket),
+      });
 
+      if (!response.ok) {
+        throw new Error("Failed to create ticket");
+      }
+
+      const savedTicket = await response.json();
+
+      setNewTickets((prevTickets) => [...prevTickets, savedTicket]);
+
+      setRenderModal(false);
+
+      window.location.reload();
+    } catch (error) {
+      console.error("Error creating ticket:", error);
+    }
+  };
+
+  if (loading) return <p>Loading...</p>;
 
   return (
     <>
@@ -15,14 +45,31 @@ const TicketsPage = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
             <div className="lg:pt-4 lg:pr-8">
-              <div className="lg:max-w-5xl">
+              <div className="lg:max-w-2xl">
                 <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl">
                   Tickets
                 </p>
-                <p className="mt-6 text-lg/8 text-gray-600">
-                  View all of the tickets below, organised by their current
-                  status.
-                </p>
+                <div className="flex items-center justify-between">
+                  <p className="mt-6 text-lg/8 text-gray-600">
+                    View all of the tickets below, organised by their current
+                    status.
+                  </p>
+                  <button
+                    className="font-semibold bg-white text-blue-500 rounded-xl border-blue-500 border px-3 py-1 text-sm inline-block lg:h-12 sm:h-20"
+                    onClick={() => setRenderModal(true)}
+                  >
+                    Create new ticket
+                  </button>
+                  {renderModal && (
+                    <>
+                      <AddTicketModal
+                        renderModal={renderModal}
+                        onClose={() => setRenderModal(false)}
+                        onSubmit={handleNewTicket}
+                      />
+                    </>
+                  )}
+                </div>
               </div>
             </div>
 
