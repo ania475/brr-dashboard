@@ -53,7 +53,7 @@ A simple Internal Team dashboard built with React, TypeScript and Express. It pr
 - Displays a list of all staff members via Tailwind CSS cards.
 - Contains name, email, role, individual photo (AI-generated pictures), a more information button, and a button to say hi to anyone who joined within the last month (button has a mail:to function to send an email to their address)
 
-💾 Data Persistence:
+# Data Persistence
 
 All data is read from and written to local JSON files (simulated database).
 
@@ -83,6 +83,8 @@ All data is read from and written to local JSON files (simulated database).
 
 - Add form validation with feedback messages.
 
+- Use the 'more information' button on the Staff component to display information about the user's last login date, and device information
+
 - Clean up Tailwind CSS styles for better readability
 
 - use React Query for fetching data to better handle larger amounts of data and improve scalability
@@ -104,3 +106,5 @@ All data is read from and written to local JSON files (simulated database).
 - Add more unit testing in Jest, including in App.test.tsx to check if the browser routes work as expected
 
 - Add more frontend components (e.g. footer, About page, etc.)
+
+- Add infinite scroll / limit the number of tasks, tickets, or staff members that can be viewed at once to better handle more data incoming from the backend

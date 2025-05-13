@@ -25,7 +25,7 @@ const Home = () => {
                 </p>
                 <p className="mt-6 text-lg/8 text-gray-600">
                   This is The Dashboard. Your home for managing the most
-                  importan things for your company.
+                  important things for your company.
                 </p>
                 <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                   <div className="relative pl-9">

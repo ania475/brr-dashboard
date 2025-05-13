@@ -49,7 +49,8 @@ const TodosPage = () => {
 
     destinationList.splice(destination.index, 0, movedItem);
 
-    setTodoList( //updates the todo status according to which column its being dragged in
+    setTodoList(
+      //updates the todo status according to which column its being dragged in
       destination.droppableId === "todo" ? destinationList : sourceList
     );
     setDoneList(
@@ -71,8 +72,8 @@ const TodosPage = () => {
                   To-do List
                 </p>
                 <p className="mt-6 text-lg/8 text-gray-600">
-                  View all of your tasks organised in a to-do list, organised by
-                  their current status. <br />
+                  View all of your tasks, organised in two columns - To Do and
+                  Done. <br />
                   <em>
                     Drag tasks between To Do and Done to update their status.
                   </em>
@@ -80,7 +81,7 @@ const TodosPage = () => {
               </div>
             </div>
 
-            <DragDropContext onDragEnd={handleDragEnd}> 
+            <DragDropContext onDragEnd={handleDragEnd}>
               <div className="grid md:grid-cols-2 gap-4 sm:grid-cols-1 mt-10">
                 <Droppable droppableId="todo">
                   {(provided) => (

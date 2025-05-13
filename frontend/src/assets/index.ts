@@ -1,5 +1,4 @@
 export { default as smilingMan } from "./smiling-man.jpg";
-export { default as laptop } from "./laptop.jpg";
 export { default as aliceSmith } from "./alice-smith.jpg";
 export { default as sallyGreen } from "./sally-green.jpg";
 export { default as emilyZhao } from "./emily-zhao.jpg";
