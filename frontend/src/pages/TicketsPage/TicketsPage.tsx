@@ -9,7 +9,7 @@ const TicketsPage = () => {
   const { tickets, loading, error, setNewTickets } = useData();
   const [renderModal, setRenderModal] = useState(false);
 
-  const handleNewTicket = async (ticket: TicketInput) => {
+  const handleNewTicket = async (ticket: TicketInput) => { //creates new ticket and sends a POSt request to updated the tickets json
     console.log("ticket", ticket);
     try {
       const response = await fetch("http://localhost:4000/api/tickets", {

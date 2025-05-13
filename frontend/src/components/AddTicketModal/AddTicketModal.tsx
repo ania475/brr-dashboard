@@ -13,11 +13,11 @@ const AddTicketModal: React.FC<AddTicketModalProps> = ({
   onSubmit,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const options = ["Account issue", "Internet issue", "Tool issue", "Other"];
+  const options = ["Account issue", "Internet issue", "Tool issue", "Other"]; //values for the Issues dropdown
   const [selected, setSelected] = useState("Options");
   const [description, setDescription] = useState("");
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: any) => { //submits new ticket
     event.preventDefault();
     const newTicket: TicketInput = {
       user: "localuser",
@@ -29,7 +29,7 @@ const AddTicketModal: React.FC<AddTicketModalProps> = ({
 
     onSubmit(newTicket);
 
-    // Reload the page to fetch new data (or call context update function)
+    // reloads the page to fetch new data (or call context update function)
     window.location.reload();
   };
 

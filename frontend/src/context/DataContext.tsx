@@ -25,14 +25,14 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     try {
-      fetch("http://localhost:4000/api/tickets")
+      fetch("http://localhost:4000/api/tickets") //fetches ticket json data
         .then((res) => res.json())
         .then((data) => {
           setTickets(data);
           setLoading(false);
         });
 
-      fetch("http://localhost:4000/api/todos")
+      fetch("http://localhost:4000/api/todos") //fetches staff json data
         .then((res) => res.json())
         .then((data) => {
           setTodos(data);
@@ -43,7 +43,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     } catch (err) {
       setError("Couldn't load data. Please try again later.");
     } finally {
-      setLoading(false);
+      setLoading(false); //sets the loading state to false
     }
   }, []);
 
@@ -51,7 +51,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
   const currentMonth = currentDate.getMonth();
   const currentYear = currentDate.getFullYear();
 
-  const newJoiners = staffData.filter((staffMember) => {
+  const newJoiners = staffData.filter((staffMember) => { //filters the staff data to show the staff that joined within the last month
     const joinedDate = new Date(staffMember.joinedDate);
     return (
       joinedDate.getMonth() === currentMonth &&
@@ -59,7 +59,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({
     );
   });
 
-  return (
+  return ( //passes down the data to the child components
     <DataContext.Provider
       value={{ tickets, setNewTickets, todos, loading, error, newJoiners }}
     >

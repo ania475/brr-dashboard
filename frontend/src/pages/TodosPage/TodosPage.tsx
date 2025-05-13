@@ -41,15 +41,15 @@ const TodosPage = () => {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ completed: movedItem.completed }),
-        });
+        }); //updates the status of the todo list
       } catch (err) {
-        console.error("Failed to update todo status", err);
+        console.error("Failed to update todo status", err); //throws error if the status cannot be updated
       }
     }
 
     destinationList.splice(destination.index, 0, movedItem);
 
-    setTodoList(
+    setTodoList( //updates the todo status according to which column its being dragged in
       destination.droppableId === "todo" ? destinationList : sourceList
     );
     setDoneList(
@@ -80,7 +80,7 @@ const TodosPage = () => {
               </div>
             </div>
 
-            <DragDropContext onDragEnd={handleDragEnd}>
+            <DragDropContext onDragEnd={handleDragEnd}> 
               <div className="grid md:grid-cols-2 gap-4 sm:grid-cols-1 mt-10">
                 <Droppable droppableId="todo">
                   {(provided) => (

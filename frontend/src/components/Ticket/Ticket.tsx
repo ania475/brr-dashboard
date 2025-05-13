@@ -12,7 +12,7 @@ const TicketComponent: React.FC<Ticket> = ({
 }) => {
   const [renderModal, setRenderModal] = useState(false);
 
-  const handleDeleteTicket = async () => {
+  const handleDeleteTicket = async () => { //deletes ticket and makes a DELETE request to update the tickets json
     try {
       const response = await fetch(`http://localhost:4000/api/tickets/${id}`, {
         method: "DELETE",
