@@ -4,6 +4,8 @@ import TodoComponent from "../../components/Todo/Todo";
 import StaffComponent from "../../components/Staff/Staff";
 import { useData } from "../../context/DataContext";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ClipboardList, Ticket, Users } from "lucide-react";
 
 const Home = () => {
   const { tickets, todos, loading, error, newJoiners } = useData();
@@ -27,75 +29,42 @@ const Home = () => {
                   This is The Dashboard. Your home for managing the most
                   important things for your company.
                 </p>
-                <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        className="absolute top-1 left-1 size-5 text-indigo-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      View tasks{" - "}
-                    </dt>
-                    <dd className="inline">
-                      Navigate to the To-do List tab in the menu to view all of
-                      your tasks.
-                    </dd>
+                <p className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none justify-between">
+                  <ClipboardList color="#5a67d8" />
+                  <p className="inline font-semibold text-gray-900">
+                    View tasks{" - "}
+                  </p>
+                  <p className="inline">
+                    Navigate to the To-do List tab in the menu to view all of
+                    your tasks.
+                  </p>
+
+                  <Ticket color="#5a67d8" />
+
+                  <p className="inline font-semibold text-gray-900">
+                    Manage tickets{" - "}
+                  </p>
+                  <p className="inline">
+                    Navigate to the Tickets tab in the menu to view all of your
+                    tasks.
+                  </p>
+
+                  <Users color="#5a67d8" />
+
+                  <p className="inline font-semibold text-gray-900">
+                    View Staff{" - "}
+                  </p>
+                  <p className="inline">
+                    Navigate to the Staff tab in the menu to view all of
+                    information about all of the current staff members.
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-2 md:flex-row">
+                    <Button className="bg-indigo-600 font-bold p-6 text-lg">
+                      Get started for free
+                    </Button>
                   </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        className="absolute top-1 left-1 size-5 text-indigo-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      Manage tickets{" - "}
-                    </dt>
-                    <dd className="inline">
-                      Navigate to the Tickets tab in the menu to view all of
-                      your tasks.
-                    </dd>
-                  </div>
-                  <div className="relative pl-9">
-                    <dt className="inline font-semibold text-gray-900">
-                      <svg
-                        className="absolute top-1 left-1 size-5 text-indigo-600"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                        data-slot="icon"
-                      >
-                        <path d="M4.632 3.533A2 2 0 0 1 6.577 2h6.846a2 2 0 0 1 1.945 1.533l1.976 8.234A3.489 3.489 0 0 0 16 11.5H4c-.476 0-.93.095-1.344.267l1.976-8.234Z" />
-                        <path
-                          fill-rule="evenodd"
-                          d="M4 13a2 2 0 1 0 0 4h12a2 2 0 1 0 0-4H4Zm11.24 2a.75.75 0 0 1 .75-.75H16a.75.75 0 0 1 .75.75v.01a.75.75 0 0 1-.75.75h-.01a.75.75 0 0 1-.75-.75V15Zm-2.25-.75a.75.75 0 0 0-.75.75v.01c0 .414.336.75.75.75H13a.75.75 0 0 0 .75-.75V15a.75.75 0 0 0-.75-.75h-.01Z"
-                          clip-rule="evenodd"
-                        />
-                      </svg>
-                      View Staff{" - "}
-                    </dt>
-                    <dd className="inline">
-                      Navigate to the Staff tab in the menu to view all of
-                      information about all of the current staff members.
-                    </dd>
-                  </div>
-                </dl>
+                </p>
               </div>
             </div>
             <img
@@ -202,7 +171,6 @@ const Home = () => {
           </div>
         </div>
       </div> */}
-      
     </>
   );
 };
