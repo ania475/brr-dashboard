@@ -108,3 +108,5 @@ All data is read from and written to local JSON files (simulated database).
 - Add more frontend components (e.g. footer, About page, etc.)
 
 - Add infinite scroll / limit the number of tasks, tickets, or staff members that can be viewed at once to better handle more data incoming from the backend
+
+- Shrink down the text in the tickets card to make all of them the same size
