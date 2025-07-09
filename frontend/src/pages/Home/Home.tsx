@@ -115,7 +115,9 @@ const Home = () => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8"></div>
       </div>
 
-      <div className="overflow-hidden bg-indigo-100 py-24 sm:py-6">
+      {/*Quick Summary */}
+
+      {/* <div className="overflow-hidden bg-indigo-100 py-24 sm:py-6 mb-6">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl gap-x-8 lg:mx-0 lg:max-w-none">
             <div className="lg:pt-4 lg:pr-8">
@@ -199,7 +201,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
+      
     </>
   );
 };

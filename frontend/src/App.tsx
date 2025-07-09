@@ -6,6 +6,7 @@ import TicketsPage from "./pages/TicketsPage/TicketsPage";
 import TodosPage from "./pages/TodosPage/TodosPage";
 import { DataProvider } from "./context/DataContext";
 import StaffPage from "./pages/StaffPage/StaffPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           path="/"
           element={
             <>
-              <Menu /> <Home />
+              <Menu />  <Home /> <Footer />
             </>
           }
         />
